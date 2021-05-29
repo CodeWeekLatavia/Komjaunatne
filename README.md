@@ -1,1 +1,1 @@
-"# Komjaunatne" 
+# Komjaunatne
