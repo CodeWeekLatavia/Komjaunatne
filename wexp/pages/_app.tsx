@@ -1,6 +1,6 @@
-import "../styles/globals.css";
 //add bootstrap 5.0
 import "bootstrap/dist/css/bootstrap.css";
+import "../styles/globals.css";
 
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <Navigation/>
       <Component {...pageProps} />
+      <Footer/>
     </>
   );
 }

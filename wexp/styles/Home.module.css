@@ -1,6 +1,6 @@
-.invertedRadiusTop:before{
+.invertedRadius:before{
   content: "";
-  position: fixed;
+  position: absolute;
   background-color: transparent;
   display: inline-block;
   height: 100px;
@@ -8,6 +8,20 @@
   border-bottom-left-radius: 100%;
   border-bottom-right-radius: 100%;
   transform: translate(0, -100%);
-  box-shadow: 0 50px 0 0 #212529;
+  box-shadow: 0 50px 0 0 black;
   z-index: -1;
+}
+
+.invertedRadiusWhite:before{
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  display: inline-block;
+  height: 100px;
+  width: 100%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  transform: translate(0, -100%);
+  box-shadow: 0 50px 0 0 white;
+  z-index: 0;
 }
