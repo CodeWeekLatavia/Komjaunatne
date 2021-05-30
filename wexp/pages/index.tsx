@@ -35,7 +35,7 @@ export default function Home() {
           "bg-dark w-100 mt-5 pb-5 d-md-block d-none " + styles.invertedRadius
         }
       >
-        <div className="container d-flex justify-content-center align-items-center flex-column">
+        <div className="container d-flex justify-content-center align-items-center flex-column py-4">
           <h1 className="text-white mt-4">Our features</h1>
           <div className="row w-100 my-4">
             <div className="col text-white text-center">
@@ -116,11 +116,13 @@ export default function Home() {
             <h1 id="about-us">About Us</h1>
             <div className="d-flex justify-content-around align-items-center">
               <p className="col-10 col-md-5 text-center text-md-start">
-                In modern days almost every single high schooler desperately
-                wants to get a summer job but ends up neither with a job nor
-                experience. Our mission is to lead the careers of the young into
-                the world of unknown, provided that they are ready to input
-                work.
+              We are a group of high schoolers with one thing in mind - making getting jobs easier for our generation and the ones after us.
+<br /><br />
+As teens, we have very limited options on how to get a job - we either work alongside a family member or we have to search for it in a convoluted government site. Our project ensures a great experience both for the employer and employee.
+<br /><br />
+WExp stands for Work Experience: what we, as teens, gain from our jobs to use later in life. Without it, we spend our summers wasting our time which could be spent on improving our work ethic and getting paid for it.
+<br /><br />
+We hope your experience is excellent and influential in your future career or business’ growth.
               </p>
               <div className="d-none d-md-block">
                 <Image src="/about-us.svg" width="532px" height="508px"></Image>
