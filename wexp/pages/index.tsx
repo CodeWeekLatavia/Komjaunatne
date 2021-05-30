@@ -35,7 +35,7 @@ export default function Home() {
           "bg-dark w-100 mt-5 pb-5 d-md-block d-none " + styles.invertedRadius
         }
       >
-        <div className="container d-flex justify-content-center align-items-center flex-column">
+        <div className="container d-flex justify-content-center align-items-center flex-column py-4">
           <h1 className="text-white mt-4">Our features</h1>
           <div className="row w-100 my-4">
             <div className="col text-white text-center">
