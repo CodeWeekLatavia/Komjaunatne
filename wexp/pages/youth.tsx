@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import Link from "next/link";
+
 interface Employer {
   name: string;
   description: string;

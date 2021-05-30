@@ -22,7 +22,7 @@ export default function Footer() {
               src="/logo.svg"
               alt="Picture of the author"
               width={150}
-              height={24}
+              height={30}
             />
         </div>
         <Link href="#">
