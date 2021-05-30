@@ -8,9 +8,10 @@ interface Employer {
 }
 
 export default function Youth(props: AppProps) {
-  let employerCardsHTML = props.data.map((employer: Employer) => (
-    <div className="col-4 p-3">
-    <div className="card py-5 shadow-sm give-me-food-pls" key={employer.name}>
+  // FIX THE KEY
+  let employerCardsHTML = props.data.map((employer: Employer, index:number) => (
+    <div className="col-4 p-3" key={employer.name+" "+index}>
+    <div className="card py-5 shadow-sm give-me-food-pls" >
       <div className="card-body">
         <h5 className="card-title">{employer.name}</h5>
         <p className="card-text">
