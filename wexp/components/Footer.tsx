@@ -5,7 +5,7 @@ export default function Footer() {
   let navLinkClasses = "fw-normal h5 mx-2 flex-wrap";
   return (
     <footer className="p-3">
-      <div className="container-md d-flex flex-row flex-md-row justify-content-around align-items-center">
+      <div className="container-md d-flex flex-row flex-md-row justify-content-around align-items-center flex-wrap">
         <div></div>
         <Link href="#">
           <a className={navLinkClasses}>Privacy</a>

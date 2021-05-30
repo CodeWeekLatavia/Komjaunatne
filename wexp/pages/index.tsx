@@ -25,12 +25,16 @@ export default function Home() {
             </div>
           </div>
           <div className="w-75 m-auto">
-            <Image src="/handshake.svg" width="512px" height="512px"></Image>
+              <Image src="/handshake.svg" width="512px" height="512px"></Image>
           </div>
         </div>
       </div>
 
-      <div className={"bg-dark w-100 mt-5 d-md-block d-none " + styles.invertedRadius}>
+      <div
+        className={
+          "bg-dark w-100 mt-5 d-md-block d-none " + styles.invertedRadius
+        }
+      >
         <div className="container d-flex justify-content-center align-items-center flex-column">
           <h1 className="text-white mt-4">Our features</h1>
           <div className="row w-100 my-4">
@@ -70,7 +74,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={"bg-dark w-100 mt-5 d-md-none d-block " + styles.invertedRadius}>
+      <div
+        className={
+          "bg-dark w-100 mt-5 d-md-none d-block " + styles.invertedRadius
+        }
+      >
         <div className="container d-flex justify-content-center align-items-center flex-column">
           <h1 className="text-white mt-4">Our features</h1>
           <div className="row w-100 my-4">
@@ -115,7 +123,7 @@ export default function Home() {
                 work.
               </p>
               <div className="d-none d-md-block">
-              <Image src="/about-us.svg" width="532px" height="508px"></Image>
+                <Image src="/about-us.svg" width="532px" height="508px"></Image>
               </div>
             </div>
           </div>
