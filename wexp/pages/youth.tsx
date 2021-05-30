@@ -1,26 +1,16 @@
 import { GetServerSideProps } from "next";
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import Link from "next/link";
-import useSwr from 'swr';
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-interface Employer{
-  name: string,
-  age: number,
-  email: string,
-  info: string
+interface Employer {
+  name: string;
+  description: string;
 }
 
 export default function Youth(props: AppProps) {
-  const {data, error} = useSwr(
-      '/api/dbcontext',
-      fetcher
-  );
-
-  // FIX THE KEY
-  let employerCardsHTML = data.map((employer: Employer, index:number) => (
-    <div className="col-4 p-3" key={employer.name+" "+index}>
-    <div className="card py-5 shadow-sm give-me-food-pls" >
+  let employerCardsHTML = props.data.map((employer: Employer) => (
+    <div className="col-4 p-3">
+    <div className="card py-5 shadow-sm give-me-food-pls" key={employer.name}>
       <div className="card-body">
         <h5 className="card-title">{employer.name}</h5>
         <p className="card-text">
@@ -105,36 +95,36 @@ export default function Youth(props: AppProps) {
   );
 }
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   const data: Employer[] = [
-//     {
-//       name: "Accenture",
-//       description: "Looking for a front-end developer",
-//     },
-//     {
-//       name: "TELE2",
-//       description: "Looking for a back-end developer",
-//     },
-//     {
-//       name: "TELE2",
-//       description: "Looking for a back-end developer",
-//     },
-//     {
-//       name: "TELE2",
-//       description: "Looking for a back-end developer",
-//     },
-//     {
-//       name: "TELE2",
-//       description: "Looking for a back-end developer",
-//     },
-//     {
-//       name: "TELE2",
-//       description: "Looking for a back-end developer",
-//     },
-//     {
-//       name: "TELE2",
-//       description: "Looking for a back-end developer",
-//     }
-//   ];
-//   return { props: { data } };
-// };
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const data: Employer[] = [
+    {
+      name: "Accenture",
+      description: "Looking for a front-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
+    }
+  ];
+  return { props: { data } };
+};
