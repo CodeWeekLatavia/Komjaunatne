@@ -75,7 +75,7 @@ export default function Youth(props: AppProps) {
             </div>
             <button
               type="submit"
-              className="rounded border-dark py-2 px-4  border fw-normal h5 text-white text-decoration-none bg-dark w-100"
+              className="rounded py-2 px-4  border fw-normal h5 text-decoration-none w-100 dark-button"
             >
               <a>Sign Up</a>
             </button>
