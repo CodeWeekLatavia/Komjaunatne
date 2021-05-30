@@ -1,14 +1,31 @@
 import { GetServerSideProps } from "next";
 import { AppProps } from "next/dist/next-server/lib/router/router";
-
-interface Employer{
-  name: string,
-  description: string
+import Link from "next/link";
+interface Employer {
+  name: string;
+  description: string;
 }
 
-export default function Youth(props:AppProps) {
+export default function Youth(props: AppProps) {
   let employerCardsHTML = props.data.map((employer: Employer) => (
-    <li key={employer.name}>{employer.name}</li>
+    <div className="col-4 p-3">
+    <div className="card py-5 shadow-sm give-me-food-pls" key={employer.name}>
+      <div className="card-body">
+        <h5 className="card-title">{employer.name}</h5>
+        <p className="card-text">
+          With supporting text below as a natural leand-in to additional
+          content.
+        </p>
+        <div className="mt-5">
+        <Link href="#about-us">
+          <a className="rounded py-1 px-4 border fw-normal my-2 text-decoration-none white-button">
+            Open profile
+          </a>
+        </Link>
+        </div>
+      </div>
+    </div>
+    </div>
   ));
   return (
     <div
@@ -60,42 +77,53 @@ export default function Youth(props:AppProps) {
               type="submit"
               className="rounded border-dark py-2 px-4  border fw-normal h5 text-white text-decoration-none bg-dark w-100"
             >
-              Sign Up
+              <a>Sign Up</a>
             </button>
           </form>
         </div>
         <div className="text-center mt-5 pt-5">
-            <h3>Available Employers</h3>
-            <p>Here is the list of our registered employers</p>
-            <div className="bg-dark w-100 p-1 text-white">
-                <a>Filter &#x2193;</a>
-            </div>
-            <ul>
-            {employerCardsHTML}
-            </ul>
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">Accenture</h5>
-                <p className="card-text">With supporting text below as a natural leand-in to additional content.</p>
-                <a href="#" className="btn btn-primary">Open</a>
-              </div>
-            </div>
+          <h3>Available Employers</h3>
+          <p>Here is the list of our registered employers</p>
+          <div className="bg-dark w-100 py-1 text-white">
+            <a>Filter &#x2193;</a>
+          </div>
+          <div className="d-flex flex-wrap">{employerCardsHTML}</div>
         </div>
       </div>
     </div>
   );
 }
 
-export const getServerSideProps:GetServerSideProps = async(context)=>{
-  const data:Employer[] = [
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const data: Employer[] = [
     {
       name: "Accenture",
-      description: "Looking for a front-end developer"
+      description: "Looking for a front-end developer",
     },
     {
       name: "TELE2",
-      description: "Looking for a back-end developer"
+      description: "Looking for a back-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
+    },
+    {
+      name: "TELE2",
+      description: "Looking for a back-end developer",
     }
   ];
-  return {props: {data}};
-}
+  return { props: { data } };
+};

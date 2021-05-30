@@ -5,9 +5,9 @@ import styles from "../styles/Navigation.module.css";
 
 export default function Navigation() {
   let navYouthButtonClasses =
-    "rounded border-dark  py-2 px-4  border m-1 fw-normal h5 mx-3 text-body text-decoration-none";
+    "rounded  py-2 px-4 border m-1 fw-normal h5 mx-3 text-decoration-none white-button";
   let navCompanyButtonClasses =
-    "rounded border-dark py-2 px-4  border m-1 fw-normal h5 mx-3 text-white text-decoration-none bg-dark";
+    "rounded py-2 px-4 border m-1 fw-normal h5 mx-3 text-decoration-none dark-button";
   return (
     <>
       <nav className="container d-flex align-items-center flex-column flex-md-row justify-content-between py-2">

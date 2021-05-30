@@ -18,7 +18,7 @@ export default function Home() {
             </div>
             <div className="d-flex justify-content-center">
               <Link href="#about-us">
-                <a className="rounded border-dark py-2 px-5 border fw-normal h5 my-2 text-white text-decoration-none bg-dark">
+                <a className="rounded py-2 px-5 border fw-normal h5 my-2 text-decoration-none dark-button">
                   About Us
                 </a>
               </Link>
@@ -32,7 +32,7 @@ export default function Home() {
 
       <div
         className={
-          "bg-dark w-100 mt-5 d-md-block d-none " + styles.invertedRadius
+          "bg-dark w-100 mt-5 pb-5 d-md-block d-none " + styles.invertedRadius
         }
       >
         <div className="container d-flex justify-content-center align-items-center flex-column">

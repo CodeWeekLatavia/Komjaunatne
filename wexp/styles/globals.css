@@ -22,3 +22,47 @@ a:hover{
 .bg-dark {
   background-color: black !important;
 }
+
+.white-button{
+  transition: background-color 1s ease !important;
+  transition: color 1s ease !important;
+  background-color: white !important;
+  color:black !important;
+  border-color:black !important;
+}
+
+.white-button:hover{
+  transition: background-color 1s ease !important;
+  transition: color 1s ease !important;
+  background-color: black !important;
+  background-color: black !important;
+  color:white !important;
+  border-color:white !important;
+}
+
+.dark-button{
+  transition: background-color 1s ease !important;
+  transition: color 1s ease !important;
+  background-color: black !important;
+  color:white !important;
+  border-color:white !important;
+}
+
+.dark-button:hover{
+  transition: background-color 1s ease !important;
+  transition: color 1s ease !important;
+  background-color: black !important;
+  background-color: white !important;
+  color:black !important;
+  border-color:black !important;
+}
+
+.give-me-food-pls{
+  transition: transform 1s ease !important;
+  
+}
+
+.give-me-food-pls:hover{
+  transition: transform 1s ease !important;
+  transform: translate(0, -5%);
+}
