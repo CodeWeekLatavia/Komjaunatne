@@ -1,3 +1,6 @@
+import Router from "next/router";
+import "nprogress/nprogress.css";
+
 //add bootstrap 5.0
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
@@ -6,14 +9,22 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from 'next/dynamic'
 
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
+const TopProgressBar = dynamic(
+  () => {
+    return import("../components/TopProgressBar");
+  },
+  { ssr: false },
+);
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-
+    <TopProgressBar />
       <Head>
         <title>WExp</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
