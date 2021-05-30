@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import Link from "next/link";
-
+import { useState } from "react";
 interface Employer {
   name: string;
   description: string;
@@ -9,26 +9,54 @@ interface Employer {
 
 export default function Youth(props: AppProps) {
   // FIX THE KEY
-  let employerCardsHTML = props.data.map((employer: Employer, index:number) => (
-    <div className="col-4 p-3" key={employer.name+" "+index}>
-    <div className="card py-5 shadow-sm give-me-food-pls" >
-      <div className="card-body">
-        <h5 className="card-title">{employer.name}</h5>
-        <p className="card-text">
-          With supporting text below as a natural leand-in to additional
-          content.
-        </p>
-        <div className="mt-5">
-        <Link href="#about-us">
-          <a className="rounded py-1 px-4 border fw-normal my-2 text-decoration-none white-button">
-            Open profile
-          </a>
-        </Link>
+  let employerCardsHTML = props.data.map(
+    (employer: Employer, index: number) => (
+      <div className="col-4 p-3" key={employer.name + " " + index}>
+        <div className="card py-5 shadow-sm give-me-food-pls">
+          <div className="card-body">
+            <h5 className="card-title">{employer.name}</h5>
+            <p className="card-text">
+              With supporting text below as a natural leand-in to additional
+              content.
+            </p>
+            <div className="mt-5">
+              <Link href="#about-us">
+                <a className="rounded py-1 px-4 border fw-normal my-2 text-decoration-none white-button">
+                  Open profile
+                </a>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
-  ));
+    )
+  );
+
+  const [filterSettingsOpen, setFilterSettingsOpen] = useState(false);
+  let filterSettingsHTML;
+  if (filterSettingsOpen) {
+    filterSettingsHTML = (
+      <div id="filterSettings" className="bg-dark w-100 py-5 text-white">
+        <div className="w-75 m-auto">
+      <label htmlFor="customRange1" className="form-label">
+        Example range
+      </label>
+      <input type="range" className="form-range" id="customRange1" />
+      <label htmlFor="customRange1" className="form-label">
+        Example range
+      </label>
+      <input type="range" className="form-range" id="customRange1" />
+      </div>
+      
+      </div>
+    );
+  } else {
+    filterSettingsHTML = (
+      <div id="filterSettings" className="bg-dark w-100 py-1 text-white">
+      </div>
+    );
+  }
+
   return (
     <div
       style={{
@@ -87,8 +115,16 @@ export default function Youth(props: AppProps) {
           <h3>Available Employers</h3>
           <p>Here is the list of our registered employers</p>
           <div className="bg-dark w-100 py-1 text-white">
-            <a>Filter &#x2193;</a>
+            <a
+              onClick={() => {
+                setFilterSettingsOpen(!filterSettingsOpen);
+              }}
+            >
+              Filter Settings &#x2193;
+            </a>
           </div>
+          {filterSettingsHTML}
+
           <div className="d-flex flex-wrap">{employerCardsHTML}</div>
         </div>
       </div>
@@ -121,7 +157,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     {
       name: "TELE2",
       description: "Looking for a back-end developer",
-    }
+    },
   ];
   return { props: { data } };
 };

@@ -89,7 +89,7 @@ export default function Company(props: AppProps) {
           <h3>Available Employees</h3>
           <p>Here are some of our registered employees</p>
           <div className="bg-dark w-100 py-1 text-white">
-            <a>Filter &#x2193;</a>
+            <a>Filter Settings &#x2193;</a>
           </div>
           <div className="d-flex flex-wrap">{employerCardsHTML}</div>
         </div>

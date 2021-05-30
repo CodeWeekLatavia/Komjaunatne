@@ -9,6 +9,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  cursor:pointer;
 }
 /*
 a:hover{
@@ -65,4 +66,9 @@ a:hover{
 .give-me-food-pls:hover{
   transition: transform 1s ease !important;
   transform: translate(0, -2%);
+}
+
+#filterSettings{
+  transition: height 1s ease !important;
+  transition: padding 1s ease !important;
 }
