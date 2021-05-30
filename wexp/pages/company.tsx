@@ -83,8 +83,8 @@ export default function Company(props: AppProps) {
           </form>
         </div>
         <div className="text-center mt-5 pt-5">
-          <h3>Available Employers</h3>
-          <p>Here is the list of our registered employers</p>
+          <h3>Available Employees</h3>
+          <p>Here are some of our registered employees</p>
           <div className="bg-dark w-100 py-1 text-white">
             <a>Filter &#x2193;</a>
           </div>
@@ -98,31 +98,31 @@ export default function Company(props: AppProps) {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data: Employee[] = [
     {
-      name: "Accenture",
+      name: "Ayana Power",
       description: "Looking for a front-end developer",
     },
     {
-      name: "TELE2",
+      name: "Colton Tran",
       description: "Looking for a back-end developer",
     },
     {
-      name: "TELE2",
+      name: "Nishat Amin",
       description: "Looking for a back-end developer",
     },
     {
-      name: "TELE2",
+      name: "Lilly-Rose Wilks",
       description: "Looking for a back-end developer",
     },
     {
-      name: "TELE2",
+      name: "Blade Rigby",
       description: "Looking for a back-end developer",
     },
     {
-      name: "TELE2",
+      name: "Maciej Mcdonald",
       description: "Looking for a back-end developer",
     },
     {
-      name: "TELE2",
+      name: "Savanna Perez",
       description: "Looking for a back-end developer",
     }
   ];
