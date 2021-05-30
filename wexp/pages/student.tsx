@@ -9,7 +9,6 @@ export default function User(){
         fetcher
     );
 
-
     if(error) return <div>Failed to load</div>
     if(!data) return <div>Loading...</div>
 
@@ -19,7 +18,6 @@ export default function User(){
         var curr = data[i];
         html+=curr.name + "\n" + curr.age + "\n" + curr.email + "\n" + curr.info;
     }
-
     
     return (
         html
