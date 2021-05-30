@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import Link from "next/link";
-
+import Image from "next/image";
 interface Employee {
   name: string;
   description: string;
@@ -10,8 +10,11 @@ interface Employee {
 export default function Company(props: AppProps) {
   let employerCardsHTML = props.data.map((employer: Employee, index:number) => (
     <div className="col-4 p-3" key={employer.name+" "+index}>
-    <div className="card py-5 shadow-sm give-me-food-pls">
+    <div className="card py-4 shadow-sm give-me-food-pls">
       <div className="card-body">
+        <div className="py-2">
+        <Image src="/profile.png" width="100px" height="100px"></Image>
+        </div>
         <h5 className="card-title">{employer.name}</h5>
         <p className="card-text">
           With supporting text below as a natural leand-in to additional
@@ -119,10 +122,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
     {
       name: "Maciej Mcdonald",
-      description: "Looking for a back-end developer",
-    },
-    {
-      name: "Savanna Perez",
       description: "Looking for a back-end developer",
     }
   ];

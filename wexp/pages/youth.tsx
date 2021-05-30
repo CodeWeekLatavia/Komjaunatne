@@ -121,10 +121,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     {
       name: "TELE2",
       description: "Looking for a back-end developer",
-    },
-    {
-      name: "TELE2",
-      description: "Looking for a back-end developer",
     }
   ];
   return { props: { data } };
