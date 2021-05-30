@@ -45,7 +45,7 @@ a:hover{
   transition: color 1s ease !important;
   background-color: black !important;
   color:white !important;
-  border-color:white !important;
+  border-color:black !important;
 }
 
 .dark-button:hover{
@@ -54,7 +54,7 @@ a:hover{
   background-color: black !important;
   background-color: white !important;
   color:black !important;
-  border-color:black !important;
+  border-color:white !important;
 }
 
 .give-me-food-pls{
