@@ -1,5 +1,4 @@
 import { GetServerSideProps } from "next";
-import { AppProps } from "next/dist/next-server/lib/router/router";
 import Link from "next/link";
 import Image from "next/image";
 import AuthHero from "../../components/AuthHero";
@@ -9,7 +8,7 @@ interface Employee {
   description: string;
 }
 
-export default function Company(props: AppProps) {
+export default function Company(props:any) {
   let employerCardsHTML = props.data.map((employer: Employee, index:number) => (
     <div className="col-4 p-3" key={employer.name+" "+index}>
     <div className="card py-4 shadow-sm give-me-food-pls">

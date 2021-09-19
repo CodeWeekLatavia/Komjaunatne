@@ -1,48 +1,15 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/Navigation.module.css";
-import { withRouter } from "next/router";
-import Router from "next";
-import { AppProps } from "next/dist/next-server/lib/router/router";
+import { withRouter, NextRouter } from "next/router";
 
-const navButtonClasses = "rounded p-1 px-4 border m-1 fw-normal h5 mx-3 text-decoration-none";
-
-function HomeNavigation() {
-  return (
-    <>
-      <Link href="/youth">
-        <a className={`${navButtonClasses} light-button`}>For Youth</a>
-      </Link>
-      <Link href="/company">
-        <a className={`${navButtonClasses} dark-button`}>
-          For Companies
-        </a>
-      </Link>
-    </>
-  );
+interface WithRouterProps {
+  router: NextRouter
 }
 
-function OtherNavigation() {
-  return (
-    <Link href="/">
-      <a className={`${navButtonClasses} purple-button`}>
-        Return
-      </a>
-    </Link>
-  );
-}
-
-function Navigation(props: AppProps) {
-  let isYouthSection = (props: AppProps)=>props.router.pathname.includes("youth");
-  let isCompanySection = (props: AppProps)=>props.router.pathname.includes("company");
-  let navButtons;
-
-  if (!props.router.pathname.includes("youth") && !props.router.pathname.includes("company")) {
-    navButtons = <HomeNavigation />;
-  } else {
-    navButtons = <OtherNavigation />;
-  }
+function Navigation(props: WithRouterProps) {
+  console.log(props);
+  let isYouthSection = (props: WithRouterProps)=>props.router.pathname.includes("youth");
+  let isCompanySection = (props: WithRouterProps)=>props.router.pathname.includes("company");
 
   return (
     <div className="mt-5">
@@ -61,7 +28,9 @@ function Navigation(props: AppProps) {
             </a>
           </Link>
           <div className="py-3 py-md-3">
-            {navButtons}
+            {!isYouthSection(props) ? <YouthBtn/>:null}
+            {!isCompanySection(props) ? <CompanyBtn/>:null}
+            {isYouthSection(props)||isCompanySection(props) ? <HomeBtn/>:null}
           </div>
         </div>
         <hr style={{ margin: "0 30px" }} />
@@ -69,5 +38,10 @@ function Navigation(props: AppProps) {
     </div>
   );
 }
+
+const navButtonClasses = "rounded p-1 px-4 border m-1 fw-normal h5 mx-3 text-decoration-none";
+let YouthBtn = () => (<Link href="/youth"><a className={`${navButtonClasses} light-button`}>For Youth</a></Link>);
+let CompanyBtn = () => (<Link href="/company"><a className={`${navButtonClasses} dark-button`}>For Companies</a></Link>);
+let HomeBtn = () => (<Link href="/"><a className={`${navButtonClasses} purple-button`}>Return</a></Link>);
 
 export default withRouter(Navigation);

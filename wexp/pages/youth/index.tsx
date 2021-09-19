@@ -1,5 +1,4 @@
 import { GetServerSideProps } from "next";
-import { AppProps } from "next/dist/next-server/lib/router/router";
 import Link from "next/link";
 import { useState } from "react";
 import AuthHero from "../../components/AuthHero";
@@ -9,7 +8,7 @@ interface Employer {
   description: string;
 }
 
-export default function Youth(props: AppProps) {
+export default function Youth(props: any) {
   // FIX THE KEY
   let employerCardsHTML = props.data.map(
     (employer: Employer, index: number) => (
