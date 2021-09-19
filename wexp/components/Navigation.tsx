@@ -7,7 +7,6 @@ interface WithRouterProps {
 }
 
 function Navigation(props: WithRouterProps) {
-  console.log(props);
   let isYouthSection = (props: WithRouterProps)=>props.router.pathname.includes("youth");
   let isCompanySection = (props: WithRouterProps)=>props.router.pathname.includes("company");
 
