@@ -19,7 +19,7 @@ function Navigation(props: WithRouterProps) {
               <div style={{ padding: "2px" }}>
                 <Image
                   src="/logo.svg"
-                  alt="Picture of the author"
+                  alt="Company Logo"
                   width={230}
                   height={40}
                 />
