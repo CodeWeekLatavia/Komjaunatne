@@ -18,7 +18,7 @@ export default function Home() {
             </div>
             <div className="d-flex justify-content-center">
               <Link href="#about-us">
-                <a className="rounded py-2 px-5 border fw-normal h5 my-2 text-decoration-none dark-button">
+                <a className="rounded py-2 px-5 border fw-normal h5 my-2 text-decoration-none purple-button">
                   About Us
                 </a>
               </Link>

@@ -60,11 +60,11 @@ function Navigation(props: AppProps) {
               </div>
             </a>
           </Link>
-          <div>
+          <div className="py-3 py-md-3">
             {navButtons}
           </div>
         </div>
-        <hr style={{ margin: "0" }} />
+        <hr style={{ margin: "0 30px" }} />
       </nav>
     </div>
   );
