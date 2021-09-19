@@ -2,68 +2,68 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Navigation.module.css";
-import {withRouter} from "next/router";
+import { withRouter } from "next/router";
 import Router from "next";
 import { AppProps } from "next/dist/next-server/lib/router/router";
 
-function HomeNavigation() {
-  let navYouthButtonClasses =
-    "rounded  py-2 px-4 border m-1 fw-normal h5 mx-3 text-decoration-none white-button";
-  let navCompanyButtonClasses =
-    "rounded py-2 px-4 border m-1 fw-normal h5 mx-3 text-decoration-none dark-button";
+const navButtonClasses = "rounded p-1 px-4 border m-1 fw-normal h5 mx-3 text-decoration-none";
 
+function HomeNavigation() {
   return (
-    <div className="d-none d-md-block">
+    <>
       <Link href="/youth">
-        <a className={navYouthButtonClasses + " " + styles.link}>For Youth</a>
+        <a className={`${navButtonClasses} white-button`}>For Youth</a>
       </Link>
       <Link href="/company">
-        <a className={navCompanyButtonClasses + " " + styles.link}>
+        <a className={`${navButtonClasses} dark-button`}>
           For Companies
         </a>
       </Link>
-    </div>
+    </>
   );
 }
 
-function OtherNavigation(){
-  let signInButtonClasses = 
-    "rounded py-2 px-4 border m-1 fw-normal h5 mx-3 text-decoration-none dark-button";
-    return (
-      <div className="d-none d-md-block">
-        <Link href="#">
-          <a className={signInButtonClasses + " " + styles.link}>
-            Sign In
-          </a>
-        </Link>
-      </div>
-    );
+function OtherNavigation() {
+  return (
+    <Link href="#">
+      <a className={`${navButtonClasses} dark-button`}>
+        Sign In
+      </a>
+    </Link>
+  );
 }
 
 function Navigation(props: AppProps) {
   let rightSide;
   console.log(props.router.pathname);
-  if(!props.router.pathname.includes("youth")&&!props.router.pathname.includes("company")){
-    rightSide = <HomeNavigation/>;
-  }else{
-    rightSide = <OtherNavigation/>;
+  if (!props.router.pathname.includes("youth") && !props.router.pathname.includes("company")) {
+    rightSide = <HomeNavigation />;
+  } else {
+    rightSide = <OtherNavigation />;
   }
   return (
-    <>
-      <nav className="container d-flex align-items-center flex-column flex-md-row justify-content-between py-2">
-        <Link href="/">
-          <a>
-            <Image
-              src="/logo.svg"
-              alt="Picture of the author"
-              width={230}
-              height={45}
-            />
-          </a>
-        </Link>
-        {rightSide}
+    <div className="mt-5">
+      <nav style={{ position: "fixed", zIndex: 3, top: 0 }} className="w-100 bg-white">
+        <div className="container d-flex align-items-center flex-column flex-md-row justify-content-between">
+          <Link href="/">
+            <a>
+              <div style={{ padding: "2px" }}>
+                <Image
+                  src="/logo.svg"
+                  alt="Picture of the author"
+                  width={230}
+                  height={40}
+                />
+              </div>
+            </a>
+          </Link>
+          <div>
+            {rightSide}
+          </div>
+        </div>
+        <hr style={{ margin: "0" }} />
       </nav>
-    </>
+    </div>
   );
 }
 
