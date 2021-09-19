@@ -12,7 +12,7 @@ function HomeNavigation() {
   return (
     <>
       <Link href="/youth">
-        <a className={`${navButtonClasses} white-button`}>For Youth</a>
+        <a className={`${navButtonClasses} light-button`}>For Youth</a>
       </Link>
       <Link href="/company">
         <a className={`${navButtonClasses} dark-button`}>

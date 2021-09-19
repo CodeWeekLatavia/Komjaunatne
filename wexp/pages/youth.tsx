@@ -21,7 +21,7 @@ export default function Youth(props: AppProps) {
             </p>
             <div className="mt-5">
               <Link href="#about-us">
-                <a className="rounded py-1 px-4 border fw-normal my-2 text-decoration-none white-button">
+                <a className="rounded py-1 px-4 border fw-normal my-2 text-decoration-none light-button">
                   Open profile
                 </a>
               </Link>
@@ -38,16 +38,16 @@ export default function Youth(props: AppProps) {
     filterSettingsHTML = (
       <div id="filterSettings" className="bg-dark w-100 py-5 text-white">
         <div className="w-75 m-auto">
-      <label htmlFor="customRange1" className="form-label">
-        Example range
-      </label>
-      <input type="range" className="form-range" id="customRange1" />
-      <label htmlFor="customRange1" className="form-label">
-        Example range
-      </label>
-      <input type="range" className="form-range" id="customRange1" />
-      </div>
-      
+          <label htmlFor="customRange1" className="form-label">
+            Example range
+          </label>
+          <input type="range" className="form-range" id="customRange1" />
+          <label htmlFor="customRange1" className="form-label">
+            Example range
+          </label>
+          <input type="range" className="form-range" id="customRange1" />
+        </div>
+
       </div>
     );
   } else {
@@ -105,7 +105,7 @@ export default function Youth(props: AppProps) {
             </div>
             <button
               type="submit"
-              className="rounded py-2 px-4  border fw-normal h5 text-decoration-none w-100 dark-button"
+              className="rounded py-2 px-4  border fw-normal h5 text-decoration-none w-100 light-button"
             >
               <a>Sign Up</a>
             </button>

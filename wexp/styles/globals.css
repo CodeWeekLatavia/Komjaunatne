@@ -24,38 +24,37 @@ a:hover{
   background-color: black !important;
 }
 
-.white-button{
+.light-button{
+  transition: background-color 1s ease !important;
+  transition: color 1s ease !important;
+  background-color: #006CE6 !important;
+  color:white !important;
+  border-color:#006CE6 !important;
+}
+
+.light-button:hover{
   transition: background-color 1s ease !important;
   transition: color 1s ease !important;
   background-color: white !important;
-  color:black !important;
-  border-color:black !important;
-}
-
-.white-button:hover{
-  transition: background-color 1s ease !important;
-  transition: color 1s ease !important;
-  background-color: black !important;
-  background-color: black !important;
-  color:white !important;
-  border-color:black !important;
+  color:#006CE6 !important;
+  border-color:#006CE6 !important;
 }
 
 .dark-button{
   transition: background-color 1s ease !important;
   transition: color 1s ease !important;
-  background-color: black !important;
+  background-color: #3f51b5 !important;
   color:white !important;
-  border-color:black !important;
+  border-color:#3f51b5 !important;
 }
 
 .dark-button:hover{
   transition: background-color 1s ease !important;
   transition: color 1s ease !important;
-  background-color: black !important;
+  background-color: #3f51b5 !important;
   background-color: white !important;
-  color:black !important;
-  border-color:black !important;
+  color:#3f51b5 !important;
+  border-color:#3f51b5 !important;
 }
 
 .give-me-food-pls{

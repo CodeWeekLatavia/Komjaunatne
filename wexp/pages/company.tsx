@@ -22,7 +22,7 @@ export default function Company(props: AppProps) {
         </p>
         <div className="mt-5">
         <Link href="#about-us">
-          <a className="rounded py-1 px-4 border fw-normal my-2 text-decoration-none white-button">
+          <a className="rounded py-1 px-4 border fw-normal my-2 text-decoration-none light-button">
             Open profile
           </a>
         </Link>
