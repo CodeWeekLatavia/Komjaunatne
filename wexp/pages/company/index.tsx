@@ -2,6 +2,8 @@ import { GetServerSideProps } from "next";
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import Link from "next/link";
 import Image from "next/image";
+import AuthHero from "../../components/AuthHero";
+
 interface Employee {
   name: string;
   description: string;
@@ -32,58 +34,11 @@ export default function Company(props: AppProps) {
     </div>
   ));
   return (
-    <div
-      style={{
-        backgroundColor: "#F2F2F2",
-        minWidth: "100vw",
-        minHeight: "80vh",
-      }}
-    >
+    <div>
       <div className="container ">
         <div className="mb-5">
-          <h1 className="text-center pt-4">For Companies</h1>
-          <h3 className="text-center py-3">Start Your Journey Here</h3>
-          <form action="" className="w-50 m-auto">
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email Address
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="exampleInputEmail"
-                aria-describedby="emailHelp"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input type="password" className="form-control" id="password" />
-              <div id="emailHelp" className="form-text">
-                We will share your email across the globe.
-              </div>
-            </div>
-            <div className="mb-3 form-check">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck"
-              />
-              <label htmlFor="exampleCheck1" className="form-check-label">
-                I agree to the{" "}
-                <i>
-                  <a>terms and conditions</a>
-                </i>
-              </label>
-            </div>
-            <button
-              type="submit"
-              className="rounded py-2 px-4  border fw-normal h5 text-decoration-none w-100 dark-button"
-            >
-              <a>Sign Up</a>
-            </button>
-          </form>
+          <h2 className="text-center py-4">For Companies - Start Your Journey Here</h2>
+          <AuthHero context='company'/>
         </div>
         <div className="text-center mt-5 pt-5">
           <h3>Available Employees</h3>

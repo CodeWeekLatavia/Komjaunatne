@@ -25,49 +25,63 @@ a:hover{
 }
 
 .light-button{
-  transition: background-color 1s ease !important;
-  transition: color 1s ease !important;
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
   background-color: #006CE6 !important;
   color:white !important;
   border-color:#006CE6 !important;
 }
 
 .light-button:hover{
-  transition: background-color 1s ease !important;
-  transition: color 1s ease !important;
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
   background-color: white !important;
   color:#006CE6 !important;
   border-color:#006CE6 !important;
 }
 
 .dark-button{
-  transition: background-color 1s ease !important;
-  transition: color 1s ease !important;
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
   background-color: #3f51b5 !important;
   color:white !important;
   border-color:#3f51b5 !important;
 }
 
 .dark-button:hover{
-  transition: background-color 1s ease !important;
-  transition: color 1s ease !important;
-  background-color: #3f51b5 !important;
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
   background-color: white !important;
   color:#3f51b5 !important;
   border-color:#3f51b5 !important;
 }
 
+.purple-button{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #A854BD !important;
+  color:white !important;
+  border-color:#A854BD !important;
+}
+
+.purple-button:hover{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: white !important;
+  color:#A854BD !important;
+  border-color:#A854BD !important;
+}
+
 .give-me-food-pls{
-  transition: transform 1s ease !important;
-  
+  transition: transform 0.8s ease !important;
 }
 
 .give-me-food-pls:hover{
-  transition: transform 1s ease !important;
+  transition: transform 0.8s ease !important;
   transform: translate(0, -2%);
 }
 
 #filterSettings{
-  transition: height 1s ease !important;
-  transition: padding 1s ease !important;
+  transition: height 0.8s ease !important;
+  transition: padding 0.8s ease !important;
 }

@@ -25,22 +25,25 @@ function HomeNavigation() {
 
 function OtherNavigation() {
   return (
-    <Link href="#">
-      <a className={`${navButtonClasses} dark-button`}>
-        Sign In
+    <Link href="/">
+      <a className={`${navButtonClasses} purple-button`}>
+        Return
       </a>
     </Link>
   );
 }
 
 function Navigation(props: AppProps) {
-  let rightSide;
-  console.log(props.router.pathname);
+  let isYouthSection = (props: AppProps)=>props.router.pathname.includes("youth");
+  let isCompanySection = (props: AppProps)=>props.router.pathname.includes("company");
+  let navButtons;
+
   if (!props.router.pathname.includes("youth") && !props.router.pathname.includes("company")) {
-    rightSide = <HomeNavigation />;
+    navButtons = <HomeNavigation />;
   } else {
-    rightSide = <OtherNavigation />;
+    navButtons = <OtherNavigation />;
   }
+
   return (
     <div className="mt-5">
       <nav style={{ position: "fixed", zIndex: 3, top: 0 }} className="w-100 bg-white">
@@ -58,7 +61,7 @@ function Navigation(props: AppProps) {
             </a>
           </Link>
           <div>
-            {rightSide}
+            {navButtons}
           </div>
         </div>
         <hr style={{ margin: "0" }} />
