@@ -1,53 +1,99 @@
+import firebase from "firebase";
+import styles from "../../styles/Alert.module.css";
+
 export default function YouthSignUpForm() {
+    const registerYouthUser = event => {
+        event.preventDefault();
+        const formElement = event.target as HTMLFormElement;
+
+        const emailInput = formElement.querySelector('#youth-email-input') as HTMLInputElement;
+        const emailValue = emailInput.value;
+
+        const passwordInput = formElement.querySelector('#youth-password-input') as HTMLInputElement;
+        const passwordValue = passwordInput.value;
+
+        const submitBtn = formElement.querySelector('#youth-form-submit') as HTMLButtonElement;
+
+        const disableSubmitBtn = function () {
+            submitBtn.disabled = true;
+            submitBtn.classList.add('green-button-disabled')
+        }
+        const enableSubmitBtn = function () {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('green-button-disabled')
+        }
+
+        disableSubmitBtn();
+
+        const errorDiv = formElement.querySelector('#youth-form-error-msg') as HTMLDivElement;
+
+        firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
+            .then((userCredential) => {
+                enableSubmitBtn();
+                // Signed in 
+                console.log(userCredential);
+                var user = userCredential.user;
+                console.log(JSON.stringify(user));
+                const url = '/api/login';
+                user.getIdToken().then(idToken => {
+                    fetch(url, {
+                        method: 'post',
+                        headers: new Headers({
+                            'Authorization': idToken
+                        })
+                    }).then(res => { console.log(res) })
+                })
+            })
+            .catch((error) => {
+                var errorMessage = error.message;
+                if (errorMessage) {
+                    enableSubmitBtn();
+                    errorDiv.style.display = 'block';
+                    errorDiv.style.maxHeight = errorDiv.scrollHeight + "px";
+                    errorDiv.innerHTML = errorMessage;
+                }
+                console.log(error);
+            });
+    }
     return (
         <>
-            <div className="card shadow-sm">
+            <div className="card shadow-sm flex-grow-1">
+                <h5 className="card-title text-center mt-3">Sign Up</h5>
                 <div className="card-body">
-                    <h5 className="card-title text-center py-2">Sign Up</h5>
-                    <p className="card-text">If an account with the provided email exists, you will be logged in.</p>
-                    <form action="" className="m-auto">
+                    <form onSubmit={registerYouthUser} className="m-auto">
+                        <div style={{ display: 'none', textAlign: 'center' }} id="youth-form-error-msg" className={`alert alert-danger ${styles.content}`} role="alert">
+                            This is a info alert—check it out!
+                        </div>
                         <div className="mb-3">
-                            <label htmlFor="email" className="form-label">
-                                Email Address
+                            <label htmlFor="youth-email-input" className="form-label">
+                                E-mail
                             </label>
                             <input
                                 type="email"
                                 className="form-control"
-                                id="exampleInputEmail"
-                                aria-describedby="emailHelp"
+                                id="youth-email-input"
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="password" className="form-label">
+                            <label htmlFor="youth-password-input" className="form-label">
                                 Password
                             </label>
-                            <input type="password" className="form-control" id="password" />
-                        </div>
-                        <div className="mb-3 form-check">
                             <input
-                                type="checkbox"
-                                className="form-check-input"
-                                id="exampleCheck"
+                                type="password"
+                                className="form-control"
+                                id="youth-password-input"
                             />
-                            <label htmlFor="exampleCheck1" className="form-check-label">
-                                I agree to the{" "}
-                                <i>
-                                    <a>terms and conditions</a>
-                                </i>
-                            </label>
                         </div>
                         <button
                             type="submit"
-                            className={`rounded py-2 px-4 border fw-normal h5 text-decoration-none w-100 light-button`}
+                            className={`rounded my-3 py-2 px-4 border fw-normal h5 text-decoration-none w-100 green-button`}
+                            id="youth-form-submit"
                         >
-                            <a className="">Enter</a>
+                            Continue
                         </button>
                     </form>
                 </div>
             </div>
-            <h3 className="text-center py-3"></h3>
-
-
         </>
     )
 }

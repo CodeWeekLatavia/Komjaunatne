@@ -72,6 +72,31 @@ a:hover{
   border-color:#A854BD !important;
 }
 
+.green-button{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #00A300 !important;
+  color:white !important;
+  border-color:#00A300 !important;
+}
+
+.green-button:hover{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: white !important;
+  color:#00A300 !important;
+  border-color:#00A300 !important;
+}
+
+.green-button-disabled{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: white !important;
+  color:#00A300 !important;
+  border-color:#00A300 !important;
+  opacity: 0.5;
+}
+
 .give-me-food-pls{
   transition: transform 0.8s ease !important;
 }

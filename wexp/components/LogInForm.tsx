@@ -3,56 +3,38 @@ type LogInFormProps = {
 }
 
 export default function LogInForm(props: LogInFormProps) {
-    let enterBtnColor = props.context==='youth' ? 'light-button':'dark-button';
+    let enterBtnColor = props.context === 'youth' ? 'light-button' : 'dark-button';
     return (
         <>
-            <div className="card shadow-sm">
+            <div className="card shadow-sm flex-grow-1">
+                <h5 className="card-title text-center mt-3">Log In</h5>
                 <div className="card-body">
-                    <h5 className="card-title text-center py-2">Log In</h5>
-                    <p className="card-text">If an account with the provided email exists, you will be logged in.</p>
                     <form action="" className="m-auto">
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">
-                                Email Address
+                                E-mail
                             </label>
                             <input
                                 type="email"
                                 className="form-control"
-                                id="exampleInputEmail"
                                 aria-describedby="emailHelp"
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="password" className="form-label">
+                            <label className="form-label">
                                 Password
                             </label>
-                            <input type="password" className="form-control" id="password" />
-                        </div>
-                        <div className="mb-3 form-check">
-                            <input
-                                type="checkbox"
-                                className="form-check-input"
-                                id="exampleCheck"
-                            />
-                            <label htmlFor="exampleCheck1" className="form-check-label">
-                                I agree to the{" "}
-                                <i>
-                                    <a>terms and conditions</a>
-                                </i>
-                            </label>
+                            <input type="password" className="form-control"/>
                         </div>
                         <button
                             type="submit"
-                            className={`rounded py-2 px-4 border fw-normal h5 text-decoration-none w-100 ${enterBtnColor}`}
+                            className={`rounded my-3 py-2 px-4 border fw-normal h5 text-decoration-none w-100 ${enterBtnColor}`}
                         >
                             <a className="">Enter</a>
                         </button>
                     </form>
                 </div>
             </div>
-            <h3 className="text-center py-3"></h3>
-
-
         </>
     )
 }

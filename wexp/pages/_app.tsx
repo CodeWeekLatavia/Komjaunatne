@@ -14,6 +14,9 @@ import dynamic from 'next/dynamic'
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
+import initAuth from '../util/initAuth';
+
+import {useEffect} from 'react';
 const TopProgressBar = dynamic(
   () => {
     return import("../components/TopProgressBar");
@@ -21,7 +24,13 @@ const TopProgressBar = dynamic(
   { ssr: false },
 );
 
+initAuth();
+
 function MyApp({ Component, pageProps }: AppProps) {
+  
+  useEffect(() => {
+    typeof document !== undefined ? require('bootstrap/dist/js/bootstrap') : null
+  }, [])
   return (
     <>
     <TopProgressBar />

@@ -11,7 +11,7 @@ function Navigation(props: WithRouterProps) {
   let isCompanySection = (props: WithRouterProps)=>props.router.pathname.includes("company");
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 pt-2">
       <nav style={{ position: "fixed", zIndex: 3, top: 0 }} className="w-100 bg-white">
         <div className="container d-flex align-items-center flex-column flex-md-row justify-content-between">
           <Link href="/">
