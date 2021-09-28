@@ -1,7 +1,7 @@
 import LogInForm from "./LogInForm";
 import YouthSignUpForm from "./youth/YouthSignUpForm";
 import CompanySignUpForm from './company/CompanySignUpForm';
-
+import { withAuthUser } from "next-firebase-auth";
 type CompanyAuthHeroProps = {
     context: 'youth' | 'company';
 }

@@ -88,13 +88,8 @@ a:hover{
   border-color:#00A300 !important;
 }
 
-.green-button-disabled{
-  transition: background-color 0.8s ease !important;
-  transition: color 0.8s ease !important;
-  background-color: white !important;
-  color:#00A300 !important;
-  border-color:#00A300 !important;
-  opacity: 0.5;
+.button-disabled{
+  opacity: 0.5 !important;
 }
 
 .give-me-food-pls{

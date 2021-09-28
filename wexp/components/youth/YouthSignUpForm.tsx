@@ -12,13 +12,13 @@ const youthContinueBtnId = "youth-form-submit";
 
 export default function YouthSignUpForm() {
     return (
-        <AuthFormCard title="Youth Sign Up">
-            <form onSubmit={registerYouthUser}>
-                <AuthAlertMsg msgId={youthAlertMsgId}/>
-                <AuthEmailInput inputId={youthEmailInputId} className="mb-3"/>
-                <AuthPasswordInput inputId={youthPasswordInputId} className="mb-3"/>
-                <AuthContinueBtn btnId={youthContinueBtnId}/>
-            </form>
+        <AuthFormCard title="Youth Sign Up" onSubmit={registerYouthUser}>
+            <AuthAlertMsg msgId={youthAlertMsgId} />
+            <div>
+                <AuthEmailInput inputId={youthEmailInputId} className="mb-3" />
+                <AuthPasswordInput inputId={youthPasswordInputId} className="mb-3" />
+            </div>
+            <AuthContinueBtn btnId={youthContinueBtnId} />
         </AuthFormCard>
     )
 }
@@ -27,34 +27,18 @@ function registerYouthUser(event) {
     event.preventDefault();
     const formElement = event.target as HTMLFormElement;
 
-    const emailInput = formElement.querySelector('#'+youthEmailInputId) as HTMLInputElement;
+    const emailInput = formElement.querySelector('#' + youthEmailInputId) as HTMLInputElement;
     const emailValue = emailInput.value;
 
-    const passwordInput = formElement.querySelector('#'+youthPasswordInputId) as HTMLInputElement;
+    const passwordInput = formElement.querySelector('#' + youthPasswordInputId) as HTMLInputElement;
     const passwordValue = passwordInput.value;
-
-    const submitBtn = formElement.querySelector('#'+youthContinueBtnId) as HTMLButtonElement;
-
-    const disableSubmitBtn = function () {
-        submitBtn.disabled = true;
-        submitBtn.classList.add('green-button-disabled')
-    }
-    const enableSubmitBtn = function () {
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('green-button-disabled')
-    }
 
     disableSubmitBtn();
 
-    const errorDiv = formElement.querySelector('#'+youthAlertMsgId) as HTMLDivElement;
-
     firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
         .then((userCredential) => {
-            enableSubmitBtn();
             // Signed in 
-            console.log(userCredential);
             var user = userCredential.user;
-            console.log(JSON.stringify(user));
             const url = '/api/login';
             user.getIdToken().then(idToken => {
                 fetch(url, {
@@ -62,17 +46,33 @@ function registerYouthUser(event) {
                     headers: new Headers({
                         'Authorization': idToken
                     })
-                }).then(res => { console.log(res) })
+                })
             })
         })
         .catch((error) => {
             var errorMessage = error.message;
-            if (errorMessage) {
-                enableSubmitBtn();
-                errorDiv.style.display = 'block';
-                errorDiv.style.maxHeight = errorDiv.scrollHeight + "px";
-                errorDiv.innerHTML = errorMessage;
-            }
-            console.log(error);
+            if (errorMessage) displayError(errorMessage);
+        })
+        .finally(() => {
+            enableSubmitBtn();
         });
+}
+
+function disableSubmitBtn() {
+    const submitBtn = document.querySelector('#' + youthContinueBtnId) as HTMLButtonElement;
+    submitBtn.disabled = true;
+    submitBtn.classList.add('button-disabled')
+}
+
+function enableSubmitBtn() {
+    const submitBtn = document.querySelector('#' + youthContinueBtnId) as HTMLButtonElement;
+    submitBtn.disabled = false;
+    submitBtn.classList.remove('button-disabled')
+}
+
+function displayError(errorMessage) {
+    const errorDiv = document.querySelector('#' + youthAlertMsgId) as HTMLDivElement;
+    errorDiv.style.display = 'block';
+    errorDiv.style.maxHeight = errorDiv.scrollHeight + "px";
+    errorDiv.innerHTML = errorMessage;
 }
