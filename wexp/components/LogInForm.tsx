@@ -3,6 +3,7 @@ import AuthAlertMsg from "./AuthAlertMsg";
 import AuthEmailInput from "./AuthEmailInput";
 import AuthEnterBtn from "./AuthEnterBtn";
 import AuthFormCard from "./AuthFormCard";
+import AuthGoogleBtn from "./AuthGoogleBtn";
 import AuthPasswordInput from "./AuthPasswordInput";
 
 const loginAlertMsgId = "login-form-error-msg";
@@ -19,7 +20,7 @@ export default function LogInForm(props) {
                 <AuthPasswordInput inputId={loginPasswordInputId} className="mb-3" />
             </div>
             <AuthEnterBtn btnId={loginContinueBtnId} context={props.context} />
-            <AuthEnterBtn btnId={loginContinueBtnId} context={props.context} />
+            <AuthGoogleBtn/>
         </AuthFormCard>
     )
 }

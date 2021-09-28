@@ -88,6 +88,23 @@ a:hover{
   border-color:#00A300 !important;
 }
 
+.white-button{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #ffffff !important;
+  color:rgb(0, 0, 0) !important;
+  border-color:#000000 !important;
+  cursor:pointer;
+}
+
+.white-button:hover{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: black !important;
+  color:white !important;
+  border-color:black !important;
+}
+
 .button-disabled{
   opacity: 0.5 !important;
 }
