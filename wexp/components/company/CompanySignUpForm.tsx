@@ -1,10 +1,10 @@
 export default function CompanySignUpForm() {
     return (
         <>
-            <div className="card shadow-sm flex-grow-1">
+            <div className="card shadow-sm flex-grow-1 mb-4">
                 <h5 className="card-title text-center mt-3">Sign Up</h5>
                 <div className="card-body">
-                    <form action="" className="m-auto">
+                    <form>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">
                                 Company name
