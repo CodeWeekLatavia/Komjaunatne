@@ -7,15 +7,12 @@ import "../styles/globals.css";
 
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
 import dynamic from 'next/dynamic'
 
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
 import initAuth from '../util/initAuth';
-
 import { useEffect } from 'react';
 const TopProgressBar = dynamic(
   () => {

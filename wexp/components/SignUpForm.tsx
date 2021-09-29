@@ -1,8 +1,4 @@
-import AuthAlertMsg from "./auth/AuthAlertMsg";
-import AuthContinueBtn from "./auth/AuthContinueBtn";
-import AuthEmailInput from "./auth/AuthEmailInput";
 import AuthFormCard from "./auth/AuthFormCard";
-import AuthPasswordInput from "./auth/AuthPasswordInput";
 import Link from 'next/link';
 
 const youthSectionPath = '/youth';

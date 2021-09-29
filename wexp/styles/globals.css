@@ -105,6 +105,22 @@ a:hover{
   border-color:#343a40 !important;
 }
 
+.red-button{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #C40000 !important;
+  color:white !important;
+  border-color:#C40000 !important;
+  cursor:pointer;
+}
+
+.red-button:hover{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: white !important;
+  color:#C40000 !important;
+  border-color:#C40000 !important;
+}
 .button-disabled{
   opacity: 0.5 !important;
 }

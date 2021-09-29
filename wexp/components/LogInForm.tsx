@@ -44,6 +44,7 @@ function logInUser(event) {
         .then((userCredential) => {
             // Signed in 
             var user = userCredential.user;
+            /*
             const url = '/api/login';
             user.getIdToken().then(idToken => {
                 fetch(url, {
@@ -53,6 +54,7 @@ function logInUser(event) {
                     })
                 })
             })
+            */
         })
         .catch((error) => {
             var errorMessage = error.message;
