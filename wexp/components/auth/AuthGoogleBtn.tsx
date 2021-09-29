@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import GoogleLogo from '../public/google_logo.png';
+import GoogleLogo from '../../public/google_logo.png';
 import firebase from 'firebase';
 
 export default function AuthGoogleBtn() {

@@ -1,9 +1,9 @@
 import firebase from "firebase";
-import AuthAlertMsg from "../AuthAlertMsg";
-import AuthContinueBtn from "../AuthContinueBtn";
-import AuthEmailInput from "../AuthEmailInput";
-import AuthFormCard from "../AuthFormCard";
-import AuthPasswordInput from "../AuthPasswordInput";
+import AuthAlertMsg from "../auth/AuthAlertMsg";
+import AuthContinueBtn from "../auth/AuthContinueBtn";
+import AuthEmailInput from "../auth/AuthEmailInput";
+import AuthFormCard from "../auth/AuthFormCard";
+import AuthPasswordInput from "../auth/AuthPasswordInput";
 
 const youthAlertMsgId = "youth-form-error-msg";
 const youthEmailInputId = "youth-email-input";

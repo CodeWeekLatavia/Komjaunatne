@@ -1,5 +1,5 @@
 
-import styles from "../styles/Alert.module.css";
+import styles from "../../styles/Alert.module.css";
 
 export default function AuthAlertMsg(props: {msgId:string}) {
     return (

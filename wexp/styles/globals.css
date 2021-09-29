@@ -92,17 +92,17 @@ a:hover{
   transition: background-color 0.8s ease !important;
   transition: color 0.8s ease !important;
   background-color: #ffffff !important;
-  color:rgb(0, 0, 0) !important;
-  border-color:#000000 !important;
+  color:black !important;
+  border-color:#343a40 !important;
   cursor:pointer;
 }
 
 .white-button:hover{
   transition: background-color 0.8s ease !important;
   transition: color 0.8s ease !important;
-  background-color: black !important;
+  background-color: #343a40 !important;
   color:white !important;
-  border-color:black !important;
+  border-color:#343a40 !important;
 }
 
 .button-disabled{

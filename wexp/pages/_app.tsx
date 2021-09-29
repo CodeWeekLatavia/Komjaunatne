@@ -16,7 +16,7 @@ import Footer from "../components/Footer";
 
 import initAuth from '../util/initAuth';
 
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 const TopProgressBar = dynamic(
   () => {
     return import("../components/TopProgressBar");
@@ -27,13 +27,13 @@ const TopProgressBar = dynamic(
 initAuth();
 
 function MyApp({ Component, pageProps }: AppProps) {
-  
+
   useEffect(() => {
     typeof document !== undefined ? require('bootstrap/dist/js/bootstrap') : null
   }, [])
   return (
     <>
-    <TopProgressBar />
+      <TopProgressBar />
       <Head>
         <title>WExp</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,9 +44,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="Krišjānis Petručeņa, Anete Gūtmane, Ārtūrs Kļaviņš, Rem Vasilenko, Eduards Žeiris, Raivo Logins"
         />
       </Head>
-      <Navigation/>
-      <Component {...pageProps} />
-      <Footer/>
+      <Navigation />
+      <div className="min-vh-100">
+        <div className="mt-5 pt-2">
+          <Component {...pageProps} />
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }

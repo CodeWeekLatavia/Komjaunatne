@@ -1,10 +1,10 @@
 import firebase from "firebase";
-import AuthAlertMsg from "./AuthAlertMsg";
-import AuthEmailInput from "./AuthEmailInput";
-import AuthEnterBtn from "./AuthEnterBtn";
-import AuthFormCard from "./AuthFormCard";
-import AuthGoogleBtn from "./AuthGoogleBtn";
-import AuthPasswordInput from "./AuthPasswordInput";
+import AuthAlertMsg from "./auth/AuthAlertMsg";
+import AuthEmailInput from "./auth/AuthEmailInput";
+import AuthEnterBtn from "./auth/AuthEnterBtn";
+import AuthFormCard from "./auth/AuthFormCard";
+import AuthGoogleBtn from "./auth/AuthGoogleBtn";
+import AuthPasswordInput from "./auth/AuthPasswordInput";
 
 const loginAlertMsgId = "login-form-error-msg";
 const loginEmailInputId = "login-email-input";
@@ -19,8 +19,10 @@ export default function LogInForm(props) {
                 <AuthEmailInput inputId={loginEmailInputId} className="mb-3" />
                 <AuthPasswordInput inputId={loginPasswordInputId} className="mb-3" />
             </div>
-            <AuthEnterBtn btnId={loginContinueBtnId} context={props.context} />
-            <AuthGoogleBtn/>
+            <div>
+                <AuthEnterBtn btnId={loginContinueBtnId} context={props.context} />
+                <AuthGoogleBtn />
+            </div>
         </AuthFormCard>
     )
 }
