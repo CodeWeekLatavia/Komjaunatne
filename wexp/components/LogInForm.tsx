@@ -11,7 +11,7 @@ const loginEmailInputId = "login-email-input";
 const loginPasswordInputId = "login-password-input";
 const loginContinueBtnId = "login-form-submit";
 
-export default function LogInForm(props) {
+export default function LogInForm(props: { context: 'youth' | 'company' | 'other' }) {
     return (
         <AuthFormCard title="Log In" onSubmit={logInUser}>
             <AuthAlertMsg msgId={loginAlertMsgId} />
@@ -21,6 +21,7 @@ export default function LogInForm(props) {
             </div>
             <div>
                 <AuthEnterBtn btnId={loginContinueBtnId} context={props.context} />
+                <div className="strikethrough fs-5">OR</div>
                 <AuthGoogleBtn />
             </div>
         </AuthFormCard>

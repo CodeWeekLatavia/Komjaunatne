@@ -122,3 +122,29 @@ a:hover{
   transition: height 0.8s ease !important;
   transition: padding 0.8s ease !important;
 }
+
+.strikethrough {
+  overflow: hidden;
+  text-align: center;
+}
+
+.strikethrough:before,
+.strikethrough:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.strikethrough:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.strikethrough:after {
+  left: 0.5em;
+  margin-right: -50%;
+}

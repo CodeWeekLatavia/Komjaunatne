@@ -1,14 +1,19 @@
-import { AuthAction, withAuthUser } from 'next-firebase-auth'
+import {
+  useAuthUser,
+  withAuthUser,
+  withAuthUserTokenSSR,
+} from 'next-firebase-auth'
 
-const MyLoader = () => <div>Loading...</div>
-
-const Demo = ({ name }) => {
-  return <div>Hello {name}!</div>
+const Demo = () => {
+  const AuthUser = useAuthUser()
+  return (
+    <div>
+      <p>Your email is {AuthUser.email ? AuthUser.email : "unknown"}.</p>
+    </div>
+  )
 }
 
-export default withAuthUser({ // <--- Ensure that the type is provided
-  whenAuthed: AuthAction.REDIRECT_TO_APP,
-  whenUnauthedBeforeInit: AuthAction.SHOW_LOADER,
-  whenUnauthedAfterInit: AuthAction.RENDER,
-  LoaderComponent: MyLoader,
-})(Demo)
+// Note that this is a higher-order function.
+export const getServerSideProps = withAuthUserTokenSSR()()
+
+export default withAuthUser()(Demo)

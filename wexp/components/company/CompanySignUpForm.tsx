@@ -1,56 +1,83 @@
+import firebase from "firebase";
+import AuthAlertMsg from "../auth/AuthAlertMsg";
+import AuthContinueBtn from "../auth/AuthContinueBtn";
+import AuthEmailInput from "../auth/AuthEmailInput";
+import AuthFormCard from "../auth/AuthFormCard";
+import AuthPasswordInput from "../auth/AuthPasswordInput";
+
+const companyAlertMsgId = "company-form-error-msg";
+const companyEmailInputId = "company-email-input";
+const companyPasswordInputId = "company-password-input";
+const companyContinueBtnId = "company-form-submit";
+
+///company name
+// your full name
+// e-mail
+// password
 export default function CompanySignUpForm() {
     return (
-        <>
-            <div className="card shadow-sm flex-grow-1 mb-4">
-                <h5 className="card-title text-center mt-3">Sign Up</h5>
-                <div className="card-body">
-                    <form>
-                        <div className="mb-3">
-                            <label htmlFor="email" className="form-label">
-                                Company name
-                            </label>
-                            <input
-                                type=""
-                                className="form-control"
-                                aria-describedby="emailHelp"
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="email" className="form-label">
-                                Your full name
-                            </label>
-                            <input
-                                type=""
-                                className="form-control"
-                                aria-describedby="emailHelp"
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="email" className="form-label">
-                                E-mail
-                            </label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                aria-describedby="emailHelp"
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">
-                                Password
-                            </label>
-                            <input type="password" className="form-control"/>
-                        </div>
-                        <button
-                            type="submit"
-                            className={`rounded my-3 py-2 px-4 border fw-normal h5 text-decoration-none w-100 green-button`}
 
-                        >
-                            <a className="">Continue</a>
-                        </button>
-                    </form>
-                </div>
+        <AuthFormCard title="Company Sign Up" onSubmit={registerCompanyUser}>
+            <AuthAlertMsg msgId={companyAlertMsgId} />
+            <div>
+                <AuthEmailInput inputId={companyEmailInputId} className="mb-3" />
+                <AuthPasswordInput inputId={companyPasswordInputId} className="mb-3" />
             </div>
-        </>
+            <AuthContinueBtn btnId={companyContinueBtnId} />
+        </AuthFormCard>
     )
+}
+
+function registerCompanyUser(event) {
+    event.preventDefault();
+    const formElement = event.target as HTMLFormElement;
+
+    const emailInput = formElement.querySelector('#' + companyEmailInputId) as HTMLInputElement;
+    const emailValue = emailInput.value;
+
+    const passwordInput = formElement.querySelector('#' + companyPasswordInputId) as HTMLInputElement;
+    const passwordValue = passwordInput.value;
+
+    disableSubmitBtn();
+
+    firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
+        .then((userCredential) => {
+            // Signed in 
+            var user = userCredential.user;
+            const url = '/api/login';
+            user.getIdToken().then(idToken => {
+                fetch(url, {
+                    method: 'post',
+                    headers: new Headers({
+                        'Authorization': idToken
+                    })
+                })
+            })
+        })
+        .catch((error) => {
+            var errorMessage = error.message;
+            if (errorMessage) displayError(errorMessage);
+        })
+        .finally(() => {
+            enableSubmitBtn();
+        });
+}
+
+function disableSubmitBtn() {
+    const submitBtn = document.querySelector('#' + companyContinueBtnId) as HTMLButtonElement;
+    submitBtn.disabled = true;
+    submitBtn.classList.add('button-disabled')
+}
+
+function enableSubmitBtn() {
+    const submitBtn = document.querySelector('#' + companyContinueBtnId) as HTMLButtonElement;
+    submitBtn.disabled = false;
+    submitBtn.classList.remove('button-disabled')
+}
+
+function displayError(errorMessage) {
+    const errorDiv = document.querySelector('#' + companyAlertMsgId) as HTMLDivElement;
+    errorDiv.style.display = 'block';
+    errorDiv.style.maxHeight = errorDiv.scrollHeight + "px";
+    errorDiv.innerHTML = errorMessage;
 }

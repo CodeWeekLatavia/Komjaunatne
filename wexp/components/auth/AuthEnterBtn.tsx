@@ -1,6 +1,7 @@
-export default function AuthEnterBtn(props: {context: 'youth'|'company', btnId: string}){
-    let enterBtnColor = props.context === 'youth' ? 'light-button' : 'dark-button';
-    return(
+export default function AuthEnterBtn(props: { context: 'youth' | 'company' | 'other', btnId: string }) {
+    let enterBtnColor = props.context === 'other' ? 'green-button'
+        : props.context === 'youth' ? 'light-button' : 'dark-button';
+    return (
         <button
             id={props.btnId}
             type="submit"
