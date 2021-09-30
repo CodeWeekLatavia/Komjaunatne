@@ -2,13 +2,15 @@ import { GetServerSideProps } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import AuthHero from "../../components/AuthHero";
+import { AuthAction, withAuthUser } from "next-firebase-auth";
+import LoadingScreen from "../../components/LoadingScreen";
 
 interface Employee {
   name: string;
   description: string;
 }
 
-export default function Company(props:any) {
+function Company(props:any) {
   let employerCardsHTML = props.data.map((employer: Employee, index:number) => (
     <div className="col-4 p-3" key={employer.name+" "+index}>
     <div className="card py-4 shadow-sm give-me-food-pls">
@@ -81,3 +83,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   ];
   return { props: { data } };
 };
+
+export default withAuthUser({
+  whenAuthed: AuthAction.REDIRECT_TO_APP,
+  whenUnauthedBeforeInit: AuthAction.SHOW_LOADER,
+  appPageURL: '/dashboard',
+  LoaderComponent: LoadingScreen
+})(Company);

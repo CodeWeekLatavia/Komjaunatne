@@ -2,13 +2,15 @@ import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useState } from "react";
 import AuthHero from "../../components/AuthHero";
+import { AuthAction, withAuthUser } from "next-firebase-auth";
+import LoadingScreen from "../../components/LoadingScreen";
 
 interface Employer {
   name: string;
   description: string;
 }
 
-export default function Youth(props: any) {
+function Youth(props: any) {
   // FIX THE KEY
   let employerCardsHTML = props.data.map(
     (employer: Employer, index: number) => (
@@ -115,3 +117,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   ];
   return { props: { data } };
 };
+
+export default withAuthUser({
+  whenAuthed: AuthAction.REDIRECT_TO_APP,
+  whenUnauthedBeforeInit: AuthAction.SHOW_LOADER,
+  appPageURL: '/dashboard',
+  LoaderComponent: LoadingScreen
+})(Youth);

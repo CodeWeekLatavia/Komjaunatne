@@ -26,7 +26,6 @@ let isDashboardSection = (props: { router: NextRouter }) => props.router.pathnam
 function Navigation(props: { router: NextRouter }) {
   let [mobileMenuState, setMobileMenuState] = useState(false);
   let authUser = useAuthUser();
-  console.log(mobileMenuState);
   return (
     <>
       <NavContainer>
@@ -63,7 +62,6 @@ const NavMenuPopup = (props: { authUser, router: NextRouter, setMobileMenuState 
   let auth = authUser.id !== null;
   let btnAdditionalClasses = "w-100 text-center"
   let closeMenu = function (e) {
-    console.log(e);
     if (e.target !== e.currentTarget)
     return;
     props.setMobileMenuState(false);
