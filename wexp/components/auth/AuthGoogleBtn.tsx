@@ -12,7 +12,7 @@ export default function AuthGoogleBtn() {
                 <div className="position-relative px-3 py-3">
                     <Image src={GoogleLogo} alt="Google Logo" layout="fill" objectFit="contain" />
                 </div>
-                <span className="align-self-center">Sign In With Google</span>
+                <span className="align-self-center text-center">Sign In With Google</span>
                 <div className="position-relative px-3 py-3"></div>
             </div>
         </div>
