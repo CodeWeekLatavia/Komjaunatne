@@ -5,6 +5,8 @@ import "nprogress/nprogress.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
 
+import "animate.css"
+
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import dynamic from 'next/dynamic'

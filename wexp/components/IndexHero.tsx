@@ -23,7 +23,7 @@ export default function IndexHero(){
               </Link>
             </div>
           </div>
-          <div className="w-75 m-auto">
+          <div className="w-75 m-auto animate__animated animate__bounceIn">
             <Image src="/handshake.svg" width="512px" height="512px"></Image>
           </div>
         </div>
