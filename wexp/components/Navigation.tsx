@@ -68,7 +68,7 @@ const NavMenuPopup = (props: { authUser, router: NextRouter, setMobileMenuState 
   }
   return (
     <div className={"position-fixed vh-100 vw-100 d-md-none"} onClick={closeMenu} style={{ zIndex: 4, backgroundColor: "rgba(0,0,0,0.5)" }}>
-      <div className="container d-flex h-75 my-5">
+      <div className="container d-flex h-50 my-5">
         <div className="card w-100">
           <div className="card-body">
           <div className="card-title">

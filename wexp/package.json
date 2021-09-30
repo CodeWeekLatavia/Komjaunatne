@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "https-dev": "node server.js"
   },
   "dependencies": {
     "@types/jquery": "^3.5.6",
