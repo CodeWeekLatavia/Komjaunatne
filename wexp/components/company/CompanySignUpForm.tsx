@@ -4,32 +4,48 @@ import AuthContinueBtn from "../auth/AuthContinueBtn";
 import AuthEmailInput from "../auth/AuthEmailInput";
 import AuthFormCard from "../auth/AuthFormCard";
 import AuthPasswordInput from "../auth/AuthPasswordInput";
+import AuthLoginBtn from "../auth/AuthLoginBtn";
+import AuthCompanyNameInput from "../auth/AuthCompanyNameInput";
 
 const companyAlertMsgId = "company-form-error-msg";
+const companyNameInputId = "company-name-input";
 const companyEmailInputId = "company-email-input";
 const companyPasswordInputId = "company-password-input";
+const companyLoginBtnId = "company-login";
+const CompanyFullNameInputId = "company-full-name-input";
 const companyContinueBtnId = "company-form-submit";
 
 ///company name
 // your full name
 // e-mail
 // password
-export default function CompanySignUpForm() {
+export default function CompanySignUpForm(props: {context: 'youth'|'company'}) {
     return (
 
         <AuthFormCard title="Company Sign Up" onSubmit={registerCompanyUser}>
             <AuthAlertMsg msgId={companyAlertMsgId} />
+            <AuthCompanyNameInput inputId={companyEmailInputId} className="mb-3" />
             <div>
                 <AuthEmailInput inputId={companyEmailInputId} className="mb-3" />
                 <AuthPasswordInput inputId={companyPasswordInputId} className="mb-3" />
             </div>
             <AuthContinueBtn btnId={companyContinueBtnId} />
+            <div className="strikethrough fs-5">OR</div>
+            <AuthLoginBtn context={props.context} btnId={companyLoginBtnId} />
         </AuthFormCard>
     )
 }
 
+
+interface CompanyRegistrationData {
+    userType: 'youth' | 'company',
+    email: string,
+    fullName: string
+}
+
 function registerCompanyUser(event) {
     event.preventDefault();
+
     const formElement = event.target as HTMLFormElement;
 
     const emailInput = formElement.querySelector('#' + companyEmailInputId) as HTMLInputElement;
@@ -38,21 +54,26 @@ function registerCompanyUser(event) {
     const passwordInput = formElement.querySelector('#' + companyPasswordInputId) as HTMLInputElement;
     const passwordValue = passwordInput.value;
 
+    const fullNameInput = formElement.querySelector('#' + CompanyFullNameInputId) as HTMLInputElement;
+    const fullNameValue = fullNameInput.value;
+
+    const data: CompanyRegistrationData = {
+        userType: 'company',
+        email: emailValue,
+        fullName: fullNameValue,
+    };
+
     disableSubmitBtn();
 
     firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
         .then((userCredential) => {
-            // Signed in 
+            firebase
+                .firestore()
+                .collection('users')
+                .doc(`${userCredential.user.uid}`)
+                .set(data)
+
             var user = userCredential.user;
-            const url = '/api/login';
-            user.getIdToken().then(idToken => {
-                fetch(url, {
-                    method: 'post',
-                    headers: new Headers({
-                        'Authorization': idToken
-                    })
-                })
-            })
         })
         .catch((error) => {
             var errorMessage = error.message;

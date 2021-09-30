@@ -8,9 +8,10 @@ type AuthHeroProps = {
 
 export default function AuthHero(props: AuthHeroProps) {
     return (
-        <div className="d-inline-flex w-100 flex-column flex-lg-row gap-lg-4 justify-content-center">
-            {props.context==='youth'?<YouthSignUpForm />:<CompanySignUpForm/>}
-            <LogInForm context={props.context}/>
+        <div className="d-inline-flex w-100 justify-content-center">
+            <div className="col-lg-6 col-12">
+            {props.context==='youth'?<YouthSignUpForm context={props.context}/>:<CompanySignUpForm context={props.context}/>}
+            </div>
         </div>
     );
 }
