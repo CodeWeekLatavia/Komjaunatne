@@ -4,11 +4,11 @@ import { withRouter, NextRouter } from "next/router";
 
 import { withAuthUser, useAuthUser } from "next-firebase-auth";
 
-import NavContainer from "./NavContainer";
-import NavLogo from './NavLogo';
+import NavContainer from "./nav/NavContainer";
+import NavLogo from './nav/NavLogo';
 
 import firebase from "firebase";
-import NavMenuIcon from "./NavMenuIcon";
+import NavMenuIcon from "./nav/NavMenuIcon";
 
 const youthSectionPath = '/youth';
 const companySectionPath = '/company';

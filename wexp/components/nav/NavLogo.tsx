@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from '../styles/Logo.module.css'
+import styles from '../../styles/Logo.module.css'
 
 export default function NavLogo() {
     return (
