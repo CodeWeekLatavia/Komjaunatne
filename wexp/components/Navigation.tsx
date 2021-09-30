@@ -96,7 +96,7 @@ let YouthBtn = (props) => (<Link href={youthSectionPath}><a className={`${navBut
 let CompanyBtn = (props) => (<Link href={companySectionPath}><a className={`${navButtonClasses} dark-button ${props.addClassName}`} onClick={props.callback}>For Companies</a></Link>);
 let HomeBtn = (props) => (<Link href="/"><a className={`${navButtonClasses} purple-button ${props.addClassName}`} onClick={props.callback}>Home</a></Link>);
 let LoginBtn = (props) => (<Link href={loginSectionPath}><a className={`${navButtonClasses} white-button ${props.addClassName}`} onClick={props.callback}>Log In</a></Link>);
-let LogoutBtn = (props) => (<a className={`${navButtonClasses} red-button  ${props.addClassName}`} onClick={()=>{props.callback();logOut()}}>Log Out</a>);
+let LogoutBtn = (props) => (<a className={`${navButtonClasses} red-button  ${props.addClassName}`} onClick={()=>{if(props.callback) props.callback();logOut()}}>Log Out</a>);
 let DashboardBtn = (props) => (<Link href={dashboardSectionPath}><a className={`${navButtonClasses} green-button ${props.addClassName}`} onClick={props.callback}>Open Dashboard</a></Link>);
 let DebugInfo = (props: { text: string }) => (<div className={`${navButtonClasses}`}>{props.text}</div>);
 

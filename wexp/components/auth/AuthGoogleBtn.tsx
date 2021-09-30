@@ -21,24 +21,5 @@ export default function AuthGoogleBtn() {
 
 function signInWithGoogle() {
     var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-            var credential = result.credential as firebase.auth.OAuthCredential;
-
-            var token = credential.accessToken;
-
-            var user = result.user;
-
-            console.log(user);
-        }).catch((error) => {
-
-            var errorCode = error.code;
-            var errorMessage = error.message;
-
-            var email = error.email;
-
-            var credential = error.credential;
-
-        });
+    firebase.auth().signInWithRedirect(provider);
 }
