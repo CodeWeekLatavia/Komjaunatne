@@ -1,37 +1,43 @@
 import Link from "next/link";
 import { withRouter, NextRouter } from "next/router";
 
-import { withAuthUser, useAuthUser} from "next-firebase-auth";
+import { withAuthUser, useAuthUser } from "next-firebase-auth";
 
 import NavContainer from "./NavContainer";
 import NavLogo from './NavLogo';
 
 import firebase from "firebase";
+import NavMenuIcon from "./NavMenuIcon";
 
 const youthSectionPath = '/youth';
 const companySectionPath = '/company';
 const loginSectionPath = '/login';
 const dashboardSectionPath = '/dashboard'
 
-function Navigation(props: {router: NextRouter}) {
+function Navigation(props: { router: NextRouter }) {
 
-  let isYouthSection = (props: {router: NextRouter}) => props.router.pathname.includes(youthSectionPath);
-  let isCompanySection = (props: {router: NextRouter}) => props.router.pathname.includes(companySectionPath);
-  let isLoginSection = (props: {router: NextRouter}) => props.router.pathname.includes(loginSectionPath);
-  let isDashboardSection = (props: {router: NextRouter}) => props.router.pathname.includes(dashboardSectionPath);
-  
+  let isYouthSection = (props: { router: NextRouter }) => props.router.pathname.includes(youthSectionPath);
+  let isCompanySection = (props: { router: NextRouter }) => props.router.pathname.includes(companySectionPath);
+  let isLoginSection = (props: { router: NextRouter }) => props.router.pathname.includes(loginSectionPath);
+  let isDashboardSection = (props: { router: NextRouter }) => props.router.pathname.includes(dashboardSectionPath);
+
   let AuthUser = useAuthUser();
   let auth = AuthUser.id !== null;
 
   return (
     <NavContainer>
       <NavLogo />
-      <div className="d-flex flex-wrap justify-content-center py-2 py-md-2 align-items-center">
-        {!auth && !isLoginSection(props) ? <LoginBtn/> : !auth?<HomeBtn/>:null}
-        {!auth && !isYouthSection(props) ? <YouthBtn /> : !auth?<HomeBtn/>:null}
-        {!auth && !isCompanySection(props) ? <CompanyBtn /> : !auth?<HomeBtn/>:null}
-        { auth && !isDashboardSection(props) ? <DashboardBtn/>: null}
-        {AuthUser.email ? <><DebugInfo text={AuthUser.email}/> <LogoutBtn/></> : null}
+      <div className="d-none d-md-block">
+        <div className="d-flex flex-wrap justify-content-center py-2 py-md-2 align-items-center">
+          {!auth && !isLoginSection(props) ? <LoginBtn /> : !auth ? <HomeBtn /> : null}
+          {!auth && !isYouthSection(props) ? <YouthBtn /> : !auth ? <HomeBtn /> : null}
+          {!auth && !isCompanySection(props) ? <CompanyBtn /> : !auth ? <HomeBtn /> : null}
+          {auth && !isDashboardSection(props) ? <DashboardBtn /> : null}
+          {AuthUser.email ? <><DebugInfo text={AuthUser.email} /> <LogoutBtn /></> : null}
+        </div>
+      </div>
+      <div className="d-block d-md-none">
+        <NavMenuIcon />
       </div>
     </NavContainer>
   );
@@ -45,9 +51,9 @@ let HomeBtn = () => (<Link href="/"><a className={`${navButtonClasses} purple-bu
 let LoginBtn = () => (<Link href={loginSectionPath}><a className={`${navButtonClasses} white-button`}>Log In</a></Link>);
 let LogoutBtn = () => (<a className={`${navButtonClasses} red-button`} onClick={logOut}>Log Out</a>);
 let DashboardBtn = () => (<Link href={dashboardSectionPath}><a className={`${navButtonClasses} green-button`}>Open Dashboard</a></Link>);
-let DebugInfo = (props: {text: string}) => (<div className={`${navButtonClasses}`}>{props.text}</div>);
+let DebugInfo = (props: { text: string }) => (<div className={`${navButtonClasses}`}>{props.text}</div>);
 
-function logOut(){
+function logOut() {
   console.log('logging user out');
   firebase.auth().signOut();
 }
