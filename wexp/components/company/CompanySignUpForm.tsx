@@ -6,13 +6,16 @@ import AuthFormCard from "../auth/AuthFormCard";
 import AuthPasswordInput from "../auth/AuthPasswordInput";
 import AuthLoginBtn from "../auth/AuthLoginBtn";
 import AuthCompanyNameInput from "../auth/AuthCompanyNameInput";
+import AuthFullName from "../auth/AuthFullName";
+
+import { CompanyUserData } from "../../models/company-firestore";
 
 const companyAlertMsgId = "company-form-error-msg";
 const companyNameInputId = "company-name-input";
 const companyEmailInputId = "company-email-input";
 const companyPasswordInputId = "company-password-input";
 const companyLoginBtnId = "company-login";
-const CompanyFullNameInputId = "company-full-name-input";
+const companyFullNameInputId = "company-full-name-input";
 const companyContinueBtnId = "company-form-submit";
 
 ///company name
@@ -24,7 +27,8 @@ export default function CompanySignUpForm(props: {context: 'youth'|'company'}) {
 
         <AuthFormCard title="Company Sign Up" onSubmit={registerCompanyUser}>
             <AuthAlertMsg msgId={companyAlertMsgId} />
-            <AuthCompanyNameInput inputId={companyEmailInputId} className="mb-3" />
+            <AuthCompanyNameInput inputId={companyNameInputId} className="mb-3" />
+            <AuthFullName inputId={companyFullNameInputId} className="mb-3" />
             <div>
                 <AuthEmailInput inputId={companyEmailInputId} className="mb-3" />
                 <AuthPasswordInput inputId={companyPasswordInputId} className="mb-3" />
@@ -37,12 +41,6 @@ export default function CompanySignUpForm(props: {context: 'youth'|'company'}) {
 }
 
 
-interface CompanyRegistrationData {
-    userType: 'youth' | 'company',
-    email: string,
-    fullName: string
-}
-
 function registerCompanyUser(event) {
     event.preventDefault();
 
@@ -54,13 +52,17 @@ function registerCompanyUser(event) {
     const passwordInput = formElement.querySelector('#' + companyPasswordInputId) as HTMLInputElement;
     const passwordValue = passwordInput.value;
 
-    const fullNameInput = formElement.querySelector('#' + CompanyFullNameInputId) as HTMLInputElement;
+    const fullNameInput = formElement.querySelector('#' + companyFullNameInputId) as HTMLInputElement;
     const fullNameValue = fullNameInput.value;
 
-    const data: CompanyRegistrationData = {
+    const companyNameInput = formElement.querySelector('#'+companyNameInputId) as HTMLInputElement;
+    const companyNameValue = companyNameInput.value;
+
+    const data: CompanyUserData = {
         userType: 'company',
-        email: emailValue,
         fullName: fullNameValue,
+        companyName: companyNameValue,
+        completedRegistration: false
     };
 
     disableSubmitBtn();

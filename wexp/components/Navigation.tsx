@@ -13,14 +13,12 @@ import NavMenuIcon from "./nav/NavMenuIcon";
 const youthSectionPath = '/youth';
 const companySectionPath = '/company';
 const loginSectionPath = '/login';
-const dashboardSectionPath = '/dashboard'
-
-const navMenuId = ''
+const dashboardSectionPath = '/redirect'
 
 let isYouthSection = (props: { router: NextRouter }) => props.router.pathname.includes(youthSectionPath);
 let isCompanySection = (props: { router: NextRouter }) => props.router.pathname.includes(companySectionPath);
 let isLoginSection = (props: { router: NextRouter }) => props.router.pathname.includes(loginSectionPath);
-let isDashboardSection = (props: { router: NextRouter }) => props.router.pathname.includes(dashboardSectionPath);
+let isDashboardSection = (props: { router: NextRouter }) => props.router.pathname.includes('/dashboard');
 
 
 function Navigation(props: { router: NextRouter }) {
@@ -30,10 +28,10 @@ function Navigation(props: { router: NextRouter }) {
     <>
       <NavContainer>
         <NavLogo />
-        <div className="d-none d-md-block">
+        <div className="d-none d-lg-block">
           <NavMenuList authUser={authUser} router={props.router} />
         </div>
-        <div className="d-block d-md-none p-2" onClick={() => setMobileMenuState(!mobileMenuState)}>
+        <div className="d-block d-lg-none p-2" onClick={() => setMobileMenuState(!mobileMenuState)}>
           <NavMenuIcon />
         </div>
       </NavContainer>
@@ -67,7 +65,7 @@ const NavMenuPopup = (props: { authUser, router: NextRouter, setMobileMenuState 
     props.setMobileMenuState(false);
   }
   return (
-    <div className={"position-fixed vh-100 vw-100 d-md-none"} onClick={closeMenu} style={{ zIndex: 4, backgroundColor: "rgba(0,0,0,0.5)" }}>
+    <div className={"position-fixed vh-100 vw-100 d-lg-none"} onClick={closeMenu} style={{ zIndex: 4, backgroundColor: "rgba(0,0,0,0.5)" }}>
       <div className="container d-flex h-50 my-5">
         <div className="card w-100">
           <div className="card-body">

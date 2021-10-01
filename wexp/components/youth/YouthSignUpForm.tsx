@@ -8,7 +8,7 @@ import AuthFullName from '../auth/AuthFullName';
 import AuthAgeInput from "../auth/AuthAgeInput";
 import AuthLoginBtn from '../auth/AuthLoginBtn';
 
-import Link from 'next/link';
+import { YouthUserData } from "../../models/youth-firestore";
 
 const youthAlertMsgId = "youth-form-error-msg";
 const youthEmailInputId = "youth-email-input";
@@ -35,13 +35,6 @@ export default function YouthSignUpForm(props: { context: 'youth' | 'company' })
     )
 }
 
-interface YouthRegistrationData {
-    userType: 'youth' | 'company',
-    email: string,
-    fullName: string,
-    age: number
-}
-
 function registerYouthUser(event) {
     event.preventDefault();
 
@@ -59,11 +52,11 @@ function registerYouthUser(event) {
     const ageInput = formElement.querySelector('#' + youthAgeInputId) as HTMLInputElement;
     const ageValue = +ageInput.value;
 
-    const data: YouthRegistrationData = {
+    const data: YouthUserData = {
         userType: 'youth',
-        email: emailValue,
         fullName: fullNameValue,
-        age: ageValue
+        age: ageValue,
+        completedRegistration: false
     };
 
     disableSubmitBtn();

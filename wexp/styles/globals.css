@@ -11,17 +11,16 @@ a {
   text-decoration: none;
   cursor:pointer;
 }
-/*
-a:hover{
-  text-decoration: underline !important;
-}
-*/
+
 * {
   box-sizing: border-box;
 }
 
-.bg-dark {
-  background-color: black !important;
+.bg-elephant {
+  background-color: #f5f5f5 !important
+}
+.bg-primary {
+  background-color: #006CE6 !important;
 }
 
 .light-button{

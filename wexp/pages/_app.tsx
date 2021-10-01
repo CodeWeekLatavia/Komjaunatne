@@ -1,4 +1,4 @@
-import Router from "next/router";
+import Router, { NextRouter } from "next/router";
 import "nprogress/nprogress.css";
 
 //add bootstrap 5.0
@@ -16,6 +16,7 @@ import Footer from "../components/Footer";
 
 import initAuth from '../util/initAuth';
 import { useEffect } from 'react';
+
 const TopProgressBar = dynamic(
   () => {
     return import("../components/TopProgressBar");
@@ -24,12 +25,14 @@ const TopProgressBar = dynamic(
 );
 
 initAuth();
-
-function MyApp({ Component, pageProps }: AppProps) {
-
+function MyApp({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
     typeof document !== undefined ? require('bootstrap/dist/js/bootstrap') : null
   }, [])
+
+  if(router.pathname.includes('/redirect'))
+    return <Component {...pageProps}/>
+
   return (
     <>
       <TopProgressBar />

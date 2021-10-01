@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function IndexValues() {
     return (
-        <div className="d-flex justify-content-center align-items-center flex-column py-4 text-white text-center">
+        <div style={{filter:"invert(1)"}}className="d-flex justify-content-center align-items-center flex-column py-4 text-white text-center bg-black">
             <h1 className="mt-4">Our Values</h1>
             <div className="row d-md-flex d-none w-100 my-4">
                 <div className="col-md">
@@ -36,7 +36,7 @@ const GuaranteeText = () =>
 (<>
     <h4>Guarantee</h4>
     <p>
-        We provide guarantee both to the employee and the employer.
+        14 day feedback guarantee.
     </p>
 </>);
 const SpeedImage = () => <Image src="/speed.svg" width="238px" height="152px"></Image>
@@ -44,7 +44,7 @@ const SpeedText = () =>
 (<>
     <h4>Speed</h4>
     <p>
-        It takes just 90s to sign up and start exploring.
+       Takes less than 90s to start exploring.
     </p>
 </>);
 const SimplicityImage = () => <Image src="/simple.svg" width="200px" height="171px"></Image>
@@ -52,7 +52,6 @@ const SimplicityText = () =>
 (<>
     <h4>Simpliticty</h4>
     <p>
-        We provide that even the elderly could navigate our services
-        with ease.
+        Easy to navigate.
     </p>
 </>);
