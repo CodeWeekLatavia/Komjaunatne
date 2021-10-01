@@ -18,7 +18,7 @@ function Dashboard(props: any) {
                     <a>Open Filter Settings &#x2193;</a>
                 </div>
                 <div className="d-flex flex-wrap">
-                    <JobList jobs={props.data} callback={()=>{setProfilePopUpState(true);}}/>
+                    <JobList jobs={props.data}/>
                 </div>
             </div>
         </div>

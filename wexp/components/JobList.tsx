@@ -1,7 +1,7 @@
 import { JobDetails } from "../models/job-list";
 import Image from 'next/image';
 
-export default function JobList(props: { jobs: JobDetails[], callback}) {
+export default function JobList(props: { jobs: JobDetails[]}) {
   const jobs = props.jobs;
   return (
     <>
@@ -19,7 +19,7 @@ export default function JobList(props: { jobs: JobDetails[], callback}) {
                 {job.shortDescription}
               </p>
               <div className="mt-5">
-                <a onClick={props.callback} className="rounded py-1 px-4 border fw-normal my-2 text-decoration-none light-button">
+                <a className="rounded py-1 px-4 border fw-normal my-2 text-decoration-none light-button">
                   Open profile
                 </a>
               </div>
