@@ -1,0 +1,9 @@
+.cropped {
+    width: 155px; /* width of container */
+    height: 40px; /* height of container */
+    overflow: hidden;
+}
+
+.croppedImg {
+    margin: 0 0 0 -80px;
+}

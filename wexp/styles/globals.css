@@ -11,64 +11,155 @@ a {
   text-decoration: none;
   cursor:pointer;
 }
-/*
-a:hover{
-  text-decoration: underline !important;
-}
-*/
+
 * {
   box-sizing: border-box;
 }
 
-.bg-dark {
-  background-color: black !important;
+.bg-elephant {
+  background-color: #f5f5f5 !important
+}
+.bg-primary {
+  background-color: #006CE6 !important;
 }
 
-.white-button{
-  transition: background-color 1s ease !important;
-  transition: color 1s ease !important;
-  background-color: white !important;
-  color:black !important;
-  border-color:black !important;
-}
-
-.white-button:hover{
-  transition: background-color 1s ease !important;
-  transition: color 1s ease !important;
-  background-color: black !important;
-  background-color: black !important;
+.light-button{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #006CE6 !important;
   color:white !important;
-  border-color:black !important;
+  border-color:#006CE6 !important;
+}
+
+.light-button:hover{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: white !important;
+  color:#006CE6 !important;
+  border-color:#006CE6 !important;
 }
 
 .dark-button{
-  transition: background-color 1s ease !important;
-  transition: color 1s ease !important;
-  background-color: black !important;
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #3f51b5 !important;
   color:white !important;
-  border-color:black !important;
+  border-color:#3f51b5 !important;
 }
 
 .dark-button:hover{
-  transition: background-color 1s ease !important;
-  transition: color 1s ease !important;
-  background-color: black !important;
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
   background-color: white !important;
+  color:#3f51b5 !important;
+  border-color:#3f51b5 !important;
+}
+
+.purple-button{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #A854BD !important;
+  color:white !important;
+  border-color:#A854BD !important;
+}
+
+.purple-button:hover{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: white !important;
+  color:#A854BD !important;
+  border-color:#A854BD !important;
+}
+
+.green-button{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #00A300 !important;
+  color:white !important;
+  border-color:#00A300 !important;
+}
+
+.green-button:hover{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: white !important;
+  color:#00A300 !important;
+  border-color:#00A300 !important;
+}
+
+.white-button{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #ffffff !important;
   color:black !important;
-  border-color:black !important;
+  border-color:#343a40 !important;
+  cursor:pointer;
+}
+
+.white-button:hover{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #343a40 !important;
+  color:white !important;
+  border-color:#343a40 !important;
+}
+
+.red-button{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: #C40000 !important;
+  color:white !important;
+  border-color:#C40000 !important;
+  cursor:pointer;
+}
+
+.red-button:hover{
+  transition: background-color 0.8s ease !important;
+  transition: color 0.8s ease !important;
+  background-color: white !important;
+  color:#C40000 !important;
+  border-color:#C40000 !important;
+}
+.button-disabled{
+  opacity: 0.5 !important;
 }
 
 .give-me-food-pls{
-  transition: transform 1s ease !important;
-  
+  transition: transform 0.8s ease !important;
 }
 
 .give-me-food-pls:hover{
-  transition: transform 1s ease !important;
+  transition: transform 0.8s ease !important;
   transform: translate(0, -2%);
 }
 
 #filterSettings{
-  transition: height 1s ease !important;
-  transition: padding 1s ease !important;
+  transition: height 0.8s ease !important;
+  transition: padding 0.8s ease !important;
+}
+
+.strikethrough {
+  overflow: hidden;
+  text-align: center;
+}
+
+.strikethrough:before,
+.strikethrough:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.strikethrough:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.strikethrough:after {
+  left: 0.5em;
+  margin-right: -50%;
 }

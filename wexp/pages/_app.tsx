@@ -1,18 +1,21 @@
-import Router from "next/router";
+import Router, { NextRouter } from "next/router";
 import "nprogress/nprogress.css";
 
 //add bootstrap 5.0
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
 
+import "animate.css"
+
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
 import dynamic from 'next/dynamic'
 
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+
+import initAuth from '../util/initAuth';
+import { useEffect } from 'react';
 
 const TopProgressBar = dynamic(
   () => {
@@ -21,10 +24,18 @@ const TopProgressBar = dynamic(
   { ssr: false },
 );
 
-function MyApp({ Component, pageProps }: AppProps) {
+initAuth();
+function MyApp({ Component, pageProps, router }: AppProps) {
+  useEffect(() => {
+    typeof document !== undefined ? require('bootstrap/dist/js/bootstrap') : null
+  }, [])
+
+  if(router.pathname.includes('/redirect'))
+    return <Component {...pageProps}/>
+
   return (
     <>
-    <TopProgressBar />
+      <TopProgressBar />
       <Head>
         <title>WExp</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,9 +46,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="Krišjānis Petručeņa, Anete Gūtmane, Ārtūrs Kļaviņš, Rem Vasilenko, Eduards Žeiris, Raivo Logins"
         />
       </Head>
-      <Navigation/>
-      <Component {...pageProps} />
-      <Footer/>
+      <Navigation />
+      <div className="min-vh-100">
+        <div className="mt-5 pt-2">
+          <Component {...pageProps} />
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }
